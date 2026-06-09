@@ -36,3 +36,10 @@ Det jag försöker få till är alltså inte bara “snygg dokumentation” (äv
 **Skrivet av:** Alexander (dev)
 
 Jag har scriptat två funktioner i RoomProvider.psm1. Den ena, Get-Rooms som hämtar rummen från rooms.json (som jag även har skapat), och den andra funktionen, Get-RoomByID, som spelmotorn sen kommer till att använda för att skicka vidare en spelare till nästa scenario i escape-roomet. 
+
+
+## 2026-06-09 - SaveSystem.psm1 samt savegame.json
+**Skrivet av:** Martin (dev)
+
+Skapade modulen som gör det möjligt för spelaren att spara och ladda spelsessioner. Vid sparandet av en session skapas savegame.json och läggs i mappen 'data'.
+Lade till en funktion i slutet som rensar sparfilen så att man inte kan ladda och "fortsätta" på en avklarad session.
