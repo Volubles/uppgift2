@@ -62,4 +62,5 @@ function Remove-SaveGame {
     }
 }
 
+#   Exporterar tre funktioner (Save-Game, Load-Game, Remove-SaveGame) så att de kan användas av andra moduler som importerar SaveSystem-modulen.
 Export-ModuleMember -Function Save-Game, Load-Game, Remove-SaveGame
