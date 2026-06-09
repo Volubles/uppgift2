@@ -52,3 +52,14 @@ function Load-Game {
         throw "Kunde inte ladda spelet: $_"
     }
 }
+
+#   Rensar sparfilen när spelet är avklarat så att man ej kan "forsätta" ett avklarat spel.
+#   -Force tar bort utan att fråga och -ErrorAction SilentlyContinue innebär att om ett fel uppstår så sker det i det tysta utan att visa ett felmeddelande.
+function Remove-SaveGame {
+    $savePath = Get-SavePath
+    if (Test-Path $savePath) {
+        Remove-Item -Path $savePath -Force -ErrorAction SilentlyContinue
+    }
+}
+
+Export-ModuleMember -Function Save-Game, Load-Game, Remove-SaveGame
