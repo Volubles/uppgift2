@@ -1,0 +1,30 @@
+[
+  {
+    "Id": "room1",
+    "Title": "Phishingmejlet",
+    "Description": "Du får ett e-postmeddelande som ser ut att komma från IT-avdelningen. De skriver att ditt lösenord håller på att löpa ut och att du måste klicka på en länk för att uppdatera det direkt. Vad gör du?",
+    "Options": [
+      "Klickar på länken och loggar in för att undvika att bli utelåst.",
+      "Kontrollerar avsändarens e-postadress, hovrar över länken för att se vart den faktiskt leder, och rapporterar e-postmeddelandet som misstänkt.",
+      "Vidarebefordrar e-postmeddelandet till alla dina kollegor för att varna dem."
+    ],
+    "CorrectOption": 2,
+    "SuccessText": "Rätt! Du identifierade tecknen på ett nätfiskeförsök (phishing). Genom att kontrollera detaljerna och rapportera e-postmeddelandet skyddar du både dig själv och organisationen. Detta tränar din förmåga (Ability) to identifiera nätfiske.",
+    "FailureText": "Felaktigt. Att klicka på länken (Alternativ 1) kan leda till att dina inloggningsuppgifter stjäls. Att vidarebefordra det utan verifiering (Alternativ 3) sprider risken till andra.",
+    "NextRoomId": "room2"
+  },
+    {
+    "Id": "room2",
+    "Title": "Den okända USB-stickan",
+    "Description": "På parkeringen utanför kontoret hittar du ett USB-minne märkt med logotypen för din största kund. Vad gör du?",
+    "Options": [
+      "Stoppar in det i din arbetsdator för att se vem det tillhör så att du kan lämna tillbaka det.",
+      "Slänger det i papperskorgen.",
+      "Lämna in det till IT-supporten/säkerhetsavdelningen utan att ansluta det till någon dator."
+    ],
+    "CorrectOption": 3,
+    "SuccessText": "Rätt! USB-minnen kan innehålla skadlig kod som körs automatiskt när de ansluts (så kallad USB drop attack). Att överlämna det till IT-säkerhet är det absolut säkraste agerandet.",
+    "FailureText": "Felaktigt. Att ansluta ett okänt USB-minne till din arbetsdator (Alternativ 1) är en stor säkerhetsrisk eftersom det kan infektera företagets nätverk. Att slänga det i soporna (Alternativ 2) gör att någon annan kan hitta det.",
+    "NextRoomId": "room3"
+  }
+]
