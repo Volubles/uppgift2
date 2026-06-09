@@ -9,7 +9,8 @@ function Get-SavePath {
 #   Funktionen tar emot ett SaveGame-objekt och sparar det i data/savegame.json
 #   Att läggs i ett try-block då filskrivning av olika anledningar kan misslyckas.
 function Save-Game {
-    #savePath = Get-SavePath
+    param($SaveGame)
+    $savePath = Get-SavePath
     try {
         # Skapar mappen data om den av någon anledning inte finns
         $dir = Split-Path $savePath
