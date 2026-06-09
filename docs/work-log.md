@@ -43,3 +43,24 @@ Jag har scriptat två funktioner i RoomProvider.psm1. Den ena, Get-Rooms som hä
 
 Skapade modulen som gör det möjligt för spelaren att spara och ladda spelsessioner. Vid sparandet av en session skapas savegame.json och läggs i mappen 'data'.
 Lade till en funktion i slutet som rensar sparfilen så att man inte kan ladda och "fortsätta" på en avklarad session.
+
+Vill man testa modulen SaveSystem.psm1 oberoende av något annat så kan se till att stå i projektmappen i terminalen och kopiera in följande i terminalen (modifiera efter eget tycke och smak):
+
+```powershell
+Import-Module .\src\modules\SaveSystem.psm1 -Force
+
+Remove-SaveGame                    # rensa ev. gammal sparfil först
+
+# Påhittad data för som matas in i savegame.json
+$test = [PSCustomObject]@{
+    PlayerName     = "Astrid"
+    CurrentRoomId  = "room3"
+    CompletedRooms = @("room1", "room2")
+    Score          = 2
+    IsCompleted    = $false
+}
+
+Save-Game -SaveGame $test          # spara den nya datan
+$laddat = Load-Game                # ladda tillbaka
+$laddat                            # ska visa Astrid, room3, Score 2
+```

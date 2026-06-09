@@ -1,0 +1,10 @@
+{
+  "PlayerName": "Astrid",
+  "CurrentRoomId": "room3",
+  "CompletedRooms": [
+    "room1",
+    "room2"
+  ],
+  "Score": 2,
+  "IsCompleted": false
+}
