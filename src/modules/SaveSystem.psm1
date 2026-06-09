@@ -25,3 +25,30 @@ function Save-Game {
         throw "Kunde inte spara spelet: $_"
     }
 }
+
+#   Funktionen läser in från savegame.json och översätter det till ett SaveGame-objekt
+#   Om filen inte finns returneras $null, vilket indikerar att det inte finns någon sparad session.
+function Load-Game {
+    $savePath = Get-SavePath
+    if (-not (Test-Path $savePath)) {
+        return $null
+    }
+
+#   -Raw läser in hela filen som en enda sträng, annars skulle Get-Content returnera en array av rader.
+    try {
+        $json = Get-Content -Raw -Path $savePath -Encoding UTF8 -ErrorAction Stop
+        $saveGame = ConvertFrom-Json $json -ErrorAction Stop
+
+#   Valideringskontroll för att säkerställa att det inlästa objektet har alla nödvändiga fält.
+        $requiredFields = @("PlayerName", "CurrentRoomId", "Score", "IsCompleted")
+        foreach ($field in $requiredFields) {
+            if ($null -eq $saveGame.PSObject.Properties[$field]) {
+                throw "Sparfilen saknar det obligatoriska fältet '$field'."
+            }
+        }
+        return $saveGame
+    }
+    catch {
+        throw "Kunde inte ladda spelet: $_"
+    }
+}
