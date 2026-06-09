@@ -29,3 +29,10 @@ Jag passade också på att snygga till dokumentationen så att den blir lättare
 Jag använde även kodblock där det passar, till exempel för kommandon och enkla flöden. Ett kodblock gör att texten visas tydligare och inte blandas ihop med vanlig brödtext.
 
 Det jag försöker få till är alltså inte bara “snygg dokumentation” (även om det är sjukt tillfredställande), utan dokumentation som hjälper gruppen att förstå projektets struktur snabbt utan att behöva leta runt i alla filer.
+
+
+
+## 2026-06-09 – rooms.json samt RoomProvider.psm1
+**Skrivet av:** Alexander (dev)
+
+Jag har scriptat två funktioner i RoomProvider.psm1. Den ena, Get-Rooms som hämtar rummen från rooms.json (som jag även har skapat), och den andra funktionen, Get-RoomByID, som spelmotorn sen kommer till att använda för att skicka vidare en spelare till nästa scenario i escape-roomet. 

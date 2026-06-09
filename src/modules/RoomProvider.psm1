@@ -21,5 +21,10 @@ function Get-Rooms {
         throw "Kritiskt fel: Filen rooms.json är skadad eller har ogiltigt JSON-format. Detaljer: $_"
     }
 }
+# Söker ut och returnerar ett specifikt rum baserat på dess unika ID, kommer att användas av spelmotorn för att hämta nästa scenario när en spelare går vidare.
+function Get-RoomById ([string]$RoomId) {
+    $rooms = Get-Rooms
+    return $rooms | Where-Object { $_.Id -eq $RoomId }
+}
 
-Export-ModuleMember -Function Get-Rooms
+Export-ModuleMember -Function Get-Rooms, Get-RoomById
