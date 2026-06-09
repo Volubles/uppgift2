@@ -1,0 +1,18 @@
+#json-filen för rummen, här lagras hela sekvensen av en fråga som efter rätt svar - leder en vidare till nästa rum.
+
+[
+  {
+    "Id": "room1",
+    "Title": "Phishingmejlet",
+    "Description": "Du får ett e-postmeddelande som ser ut att komma från IT-avdelningen. De skriver att ditt lösenord håller på att löpa ut och att du måste klicka på en länk för att uppdatera det direkt. Vad gör du?",
+    "Options": [
+      "Klickar på länken och loggar in för att undvika att bli utelåst.",
+      "Kontrollerar avsändarens e-postadress, hovrar över länken för att se vart den faktiskt leder, och rapporterar e-postmeddelandet som misstänkt.",
+      "Vidarebefordrar e-postmeddelandet till alla dina kollegor för att varna dem."
+    ],
+    "CorrectOption": 2,
+    "SuccessText": "Rätt! Du identifierade tecknen på ett nätfiskeförsök (phishing). Genom att kontrollera detaljerna och rapportera e-postmeddelandet skyddar du både dig själv och organisationen. Detta tränar din förmåga (Ability) to identifiera nätfiske.",
+    "FailureText": "Felaktigt. Att klicka på länken (Alternativ 1) kan leda till att dina inloggningsuppgifter stjäls. Att vidarebefordra det utan verifiering (Alternativ 3) sprider risken till andra.",
+    "NextRoomId": "room2"
+  }
+  ]
