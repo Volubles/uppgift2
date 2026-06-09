@@ -1,5 +1,3 @@
-#json-filen för rummen, här lagras hela sekvensen av en fråga som efter rätt svar - leder en vidare till nästa rum.
-
 [
   {
     "Id": "room1",
