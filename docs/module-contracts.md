@@ -69,13 +69,6 @@ Ansvar:
 - visa enkla meddelanden
 - pausa tills användaren trycker Enter
 
-Ansvarar inte för:
-- att läsa rooms.json
-- att avgöra om svar är rätt eller fel
-- att räkna poäng
-- att spara eller ladda spel
-- att välja nästa rum
-
 Exporterade funktioner:
 - Clear-Screen
 - Show-Header
