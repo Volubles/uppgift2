@@ -26,5 +26,21 @@
     "SuccessText": "Rätt! USB-minnen kan innehålla skadlig kod som körs automatiskt när de ansluts (så kallad USB drop attack). Att överlämna det till IT-säkerhet är det absolut säkraste agerandet.",
     "FailureText": "Felaktigt. Att ansluta ett okänt USB-minne till din arbetsdator (Alternativ 1) är en stor säkerhetsrisk eftersom det kan infektera företagets nätverk. Att slänga det i soporna (Alternativ 2) gör att någon annan kan hitta det.",
     "NextRoomId": "room3"
+  },
+  {
+    "Id": "room3",
+    "Title": "Lösenordshantering",
+    "Description": "Du har fått i uppgift att skapa ett nytt lösenord för ditt arbetskonto. Vilket av följande är det bästa alternativet?",
+    "Options": [
+      "Använda ditt favoritord som du alltid använder, eftersom det är lätt att komma ihåg.",
+      "Skapa ett komplext lösenord som innehåller en blandning av bokstäver, siffror och specialtecken, och använda en lösenordshanterare för att lagra det säkert.",
+      "Använda samma lösenord som du har på dina sociala medier för att göra det lättare att komma ihåg."
+    ],
+    "CorrectOption": 2,
+    "SuccessText": "Rätt! Att skapa ett komplext lösenord och använda en lösenordshanterare är den bästa metoden för att skydda ditt konto. Det minskar risken för att ditt konto blir hackat.",
+    "FailureText": "Felaktigt. Att använda samma lösenord (Alternativ 1 eller 3) ökar risken för att flera av dina konton kan bli komprometterade om ett av dem hackas.",
+    "NextRoomId": null
   }
 ]
+
+
