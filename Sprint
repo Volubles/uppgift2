@@ -1,7 +1,10 @@
 Sprint 2
 
 Sprint 2 Planning
-Målet med Sprint 2 var att skapa mervärde i produkten. Fokus låg på att utveckla spelets rum och frågesystem. Användaren ska läsa information i varje rum innan en fråga besvaras. Vid fel svar skickas användaren tillbaka till början av samma rum och får läsa informationen igen. Svarsalternativen slumpas varje gång frågan visas för att göra det svårare att gissa rätt svar. Även loggning av användare som svarade fel flera gånger planerades.
+Målet med Sprint 2 var att skapa mervärde i produkten. Fokus låg på att utveckla spelets rum och frågesystem.
+Användaren ska läsa information i varje rum innan en fråga besvaras.
+Vid fel svar skickas användaren tillbaka till början av samma rum och får läsa informationen igen.
+Svarsalternativen slumpas varje gång frågan visas för att göra det svårare att gissa rätt svar. Även loggning av användare som svarade fel flera gånger planerades.
 
 Spring 2 fördelning
 
