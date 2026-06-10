@@ -1,4 +1,4 @@
-function Get-Theori {
+function Get-Teori {
     # 1. Bygg sökvägen till filen teorin.json
     $teorinPath = Join-Path $PSScriptRoot "..\..\data\teorin.json"
 
@@ -18,14 +18,14 @@ function Get-Theori {
 }
 
 # Hämtar teorin kopplad till ett specifikt rum baserat på rummets ID.
-function Get-TheoriByRoomId {
+function Get-TeoriByRoomId {
     param (
         [string]$RoomId
     )
 
-    $theorier = Get-Theori
+    $theorier = Get-Teori
     return $theorier | Where-Object { $_.RelatedRoomId -eq $RoomId }
 }
 
 # Exporterar funktionerna så att de kan användas av andra PowerShell-filer/moduler.
-Export-ModuleMember -Function Get-Theori, Get-TheoriByRoomId
+Export-ModuleMember -Function Get-Teori, Get-TeoriByRoomId
