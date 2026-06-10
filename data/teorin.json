@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "briefing1",
+    "RelatedRoomId": "room1",
+    "Topic": "Phishing",
+    "Title": "Phishing och misstänkta mejl",
+    "Text": "Phishing, eller nätfiske, är när en angripare försöker lura dig att lämna ifrån dig känslig information, till exempel lösenord eller inloggningsuppgifter. Det sker ofta via falska mejl som ser ut att komma från en betrodd avsändare, till exempel IT-avdelningen, banken eller en chef.",
+    "KeyPoints": [
+      "Kontrollera alltid avsändarens e-postadress.",
+      "Klicka inte direkt på länkar i misstänkta mejl.",
+      "Hovra över länkar för att se vart de leder.",
+      "Rapportera misstänkta mejl till IT eller säkerhetsansvarig.",
+      "Logga aldrig in via en länk du inte litar på."
+    ]
+  },
+  {
+    "Id": "briefing2",
+    "RelatedRoomId": "room2",
+    "Topic": "Okända USB-enheter",
+    "Title": "Farliga USB-minnen och USB drop attacks",
+    "Text": "Ett okänt USB-minne kan innehålla skadlig kod. Angripare kan medvetet lämna USB-minnen på platser där anställda hittar dem, till exempel på en parkering eller i ett fikarum. Om någon ansluter USB-minnet till en arbetsdator kan datorn eller nätverket infekteras.",
+    "KeyPoints": [
+      "Anslut aldrig ett okänt USB-minne till din dator.",
+      "USB-minnen kan innehålla virus eller annan skadlig kod.",
+      "Även ett USB-minne med en trovärdig logotyp kan vara farligt.",
+      "Lämna okända USB-enheter till IT-support eller säkerhetsavdelning.",
+      "Släng inte USB-minnet där någon annan kan hitta det."
+    ]
+  },
+  {
+    "Id": "briefing3",
+    "RelatedRoomId": "room3",
+    "Topic": "Lösenordshantering",
+    "Title": "Säkra lösenord och lösenordshanterare",
+    "Text": "Ett starkt lösenord skyddar ditt konto mot obehörig åtkomst. Det är viktigt att inte återanvända samma lösenord på flera konton. Om ett lösenord läcker från en tjänst kan angripare testa samma lösenord på andra tjänster.",
+    "KeyPoints": [
+      "Använd unika lösenord för olika konton.",
+      "Använd gärna en lösenordshanterare.",
+      "Undvik enkla lösenord som namn, favoritord eller datum.",
+      "Ett starkt lösenord bör vara långt och svårt att gissa.",
+      "Återanvänd inte lösenord från sociala medier på arbetskonton."
+    ]
+  }
+]
