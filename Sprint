@@ -1,25 +1,26 @@
-Sprint 2
+# Sprint 2
 
-Sprint 2 Planning
-Målet med Sprint 2 var att skapa mervärde i produkten. Fokus låg på att utveckla spelets rum och frågesystem.
-Användaren ska läsa information i varje rum innan en fråga besvaras.
-Vid fel svar skickas användaren tillbaka till början av samma rum och får läsa informationen igen.
-Svarsalternativen slumpas varje gång frågan visas för att göra det svårare att gissa rätt svar. Även loggning av användare som svarade fel flera gånger planerades.
+## Sprint 2 Planning
 
-Spring 2 fördelning
+Målet med Sprint 2 var att skapa mervärde i produkten.
+Under planeringen upptäcktes även att flera user stories redan var färdiga i den befintliga koden och därför kunde tas bort från produktbackloggen.
 
-Maxiprogramm - #10 
+Fokus låg på att vidareutveckla spelmotorn och förbättra spelupplevelsen.
+Planerade funktioner inkluderade bland annat hantering av rum, förbättrad spellogik, sparfunktioner och ytterligare innehåll i spelet.
 
-Gleipneer - #18
+## Sprint Review 2
 
-Aleexanderrj - #37, #38
+Under Sprint 2 implementerades flera nya funktioner.
+Bland annat utvecklades spelets GameLoop vidare och en GameEngine-modul lades till för att strukturera koden bättre.
+Funktioner för att läsa rum från `rooms.json`, hämta rum via ID samt lägga till nya rum implementerades.
 
-Certher - #39
+Arbete genomfördes även för att skapa funktioner för att spara, läsa och rensa sparfiler, vilket lade grunden för att användaren ska kunna fortsätta ett tidigare spel.
+Utöver detta genomfördes felsökning, kodförbättringar och dokumentationsarbete.
 
-Sprint Review 2
-Under arbetets gång visade det sig att vissa issues tog längre tid än planerat. Framför allt krävde funktioner kopplade till frågor systemet mer arbete än väntat.
-Trots detta genomfördes större delen av den planerade funktionaliteten och flera förbättringar av spelets utbildnings flöde kunde färdigställas.
+Vissa issues visade sig vara mer tidskrävande än förväntat och fick därför flyttas till senare sprintar.
 
+## Sprint Retrospective 2
 
-Sprint Retrospective 2
-Gruppen upplevde lite problem under Sprint 2. Då var Scrum Master's låg lite bakom och han behövde få information kringgående uppgiften och hur den var uppbyggd.
+Gruppen upplevde inga större problem under Sprint 2.
+Samarbetet fungerade bra och flera delar av systemet kunde färdigställas och integreras genom merge requests.
+Några särskilda förbättringsförslag framkom inte under retrospektivet.
