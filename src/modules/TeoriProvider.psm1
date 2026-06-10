@@ -17,4 +17,15 @@ function Get-Theori {
     }
 }
 
-Export-ModuleMember -Function Get-Theori
+# Hämtar teorin kopplad till ett specifikt rum baserat på rummets ID.
+function Get-TheoriByRoomId {
+    param (
+        [string]$RoomId
+    )
+
+    $theorier = Get-Theori
+    return $theorier | Where-Object { $_.RelatedRoomId -eq $RoomId }
+}
+
+# Exporterar funktionerna så att de kan användas av andra PowerShell-filer/moduler.
+Export-ModuleMember -Function Get-Theori, Get-TheoriByRoomId
