@@ -1,0 +1,25 @@
+Sprint 2
+
+Sprint 2 Planning
+Målet med Sprint 2 var att skapa mervärde i produkten. Fokus låg på att utveckla spelets rum och frågesystem.
+Användaren ska läsa information i varje rum innan en fråga besvaras.
+Vid fel svar skickas användaren tillbaka till början av samma rum och får läsa informationen igen.
+Svarsalternativen slumpas varje gång frågan visas för att göra det svårare att gissa rätt svar. Även loggning av användare som svarade fel flera gånger planerades.
+
+Spring 2 fördelning
+
+Maxiprogramm - #10 
+
+Gleipneer - #18
+
+Aleexanderrj - #37, #38
+
+Certher - #39
+
+Sprint Review 2
+Under arbetets gång visade det sig att vissa issues tog längre tid än planerat. Framför allt krävde funktioner kopplade till frågor systemet mer arbete än väntat.
+Trots detta genomfördes större delen av den planerade funktionaliteten och flera förbättringar av spelets utbildnings flöde kunde färdigställas.
+
+
+Sprint Retrospective 2
+Gruppen upplevde lite problem under Sprint 2. Då var Scrum Master's låg lite bakom och han behövde få information kringgående uppgiften och hur den var uppbyggd.
