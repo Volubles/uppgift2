@@ -64,3 +64,19 @@ Save-Game -SaveGame $test          # spara den nya datan
 $laddat = Load-Game                # ladda tillbaka
 $laddat                            # ska visa Astrid, room3, Score 2
 ```
+
+## 2026-06-10 – ConsoleUI och första modulkontrakt
+
+**Skrivet av:** Joakim
+
+Idag arbetade jag med `ConsoleUI.psm1`, alltså modulen som ansvarar för det användaren ser i terminalen och det användaren skriver in.
+
+Målet var att göra modulen så enkel som möjligt men ändå fungerande. Därför tog jag bort onödig grafik och färger tills vidare, så att vi först kan fokusera på att spelet fungerar korrekt. Tanken är att vi kan förbättra utseendet senare när hela flödet fungerar.
+
+Jag såg också tydligare hur viktigt det är att modulerna har ett gemensamt kontrakt. `GameEngine.psm1` behöver kunna anropa funktioner i `ConsoleUI.psm1`, och därför måste funktionsnamn och parametrar stämma exakt. Annars får man fel även om själva idén i koden är rätt.
+
+I `ConsoleUI.psm1` finns nu funktioner för att visa rubrik, huvudmeny, spelarens namn, aktuellt rum, spelarens val, feedback, slutskärm, meddelanden och paus. Modulen innehåller inte spellogik, poänglogik eller sparlogik. Den ska bara hantera inmatning och utmatning i konsolen.
+
+Jag testade modulen genom att importera den i PowerShell och kontrollera att alla funktioner exporteras korrekt. Importtestet visade att funktionerna finns och att modulen kan laddas utan syntaxfel.
+
+Jag skapade även en egen branch för arbetet, gjorde en commit och pushade branchen till GitHub. Nästa steg är att någon i gruppen granskar Pull Requesten innan den mergas till `main`.
