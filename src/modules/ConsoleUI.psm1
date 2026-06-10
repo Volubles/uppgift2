@@ -60,3 +60,43 @@ function Show-MainMenu {
     }
 }
 
+
+# Läser spelarens namn och tillåter inte tom input.
+function Get-PlayerName {
+    while ($true) {
+        $name = Read-Host "Ange ditt namn"
+
+        if (-not [string]::IsNullOrWhiteSpace($name)) {
+            return $name.Trim()
+        }
+
+        Write-Host "Namnet får inte vara tomt."
+    }
+}
+
+
+# Visar aktuellt rum, spelarstatus och svarsalternativ.
+function Show-Room {
+    param(
+        $Room,
+        $SaveGame
+    )
+
+    Clear-Screen
+    Show-Header
+
+    Write-Host "Spelare: $($SaveGame.PlayerName)"
+    Write-Host "Poäng: $($SaveGame.Score)"
+    Write-Host "Rum: $($Room.Title)"
+    Write-Host ""
+
+    Write-Host $Room.Description
+    Write-Host ""
+
+    for ($i = 0; $i -lt $Room.Options.Count; $i++) {
+        $optionNumber = $i + 1
+        Write-Host "$optionNumber. $($Room.Options[$i])"
+    }
+
+    Write-Host ""
+}
