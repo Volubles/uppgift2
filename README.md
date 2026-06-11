@@ -52,7 +52,7 @@ Kör enkel test:
 - [Implementationsplan](docs/implementation-plan.md)
 - [Systemtopologi](docs/system-topology.md)
 - [Modulkontrakt](docs/module-contracts.md)
-- [Git-arbetsflöde](docs/Git-arbetsflöde.md)
+- [Git-arbetsflöde](docs/git-workflow.md)
 - [Produktvision](docs/product-vision.md)
 - [ADKAR-plan](docs/adkar-plan.md)
 - [Daily standups](docs/daily-standups.md)
@@ -70,4 +70,4 @@ egen branch = eget arbete
 pull request = granskning innan merge
 ```
 
-Se mer i [Git-workflow](docs/Git-workflow.md).
+Se mer i [Git-workflow](docs/git-workflow.md).

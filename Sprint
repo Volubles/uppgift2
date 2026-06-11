@@ -1,0 +1,26 @@
+# Sprint 2
+
+## Sprint 2 Planning
+
+Målet med Sprint 2 var att skapa mervärde i produkten.
+Under planeringen upptäcktes även att flera user stories redan var färdiga i den befintliga koden och därför kunde tas bort från produktbackloggen.
+
+Fokus låg på att vidareutveckla spelmotorn och förbättra spelupplevelsen.
+Planerade funktioner inkluderade bland annat hantering av rum, förbättrad spellogik, sparfunktioner och ytterligare innehåll i spelet.
+
+## Sprint Review 2
+
+Under Sprint 2 implementerades flera nya funktioner.
+Bland annat utvecklades spelets GameLoop vidare och en GameEngine-modul lades till för att strukturera koden bättre.
+Funktioner för att läsa rum från `rooms.json` och hämta rum via ID implementerades.
+
+Arbete genomfördes även för att skapa funktioner för att spara, läsa och rensa sparfiler, vilket lade grunden för att användaren ska kunna fortsätta ett tidigare spel.
+Utöver detta genomfördes felsökning, kodförbättringar och dokumentationsarbete.
+
+Vissa issues visade sig vara mer tidskrävande än förväntat och fick därför flyttas till senare sprintar.
+
+## Sprint Retrospective 2
+
+Gruppen upplevde inga större problem under Sprint 2.
+Samarbetet fungerade bra och flera delar av systemet kunde färdigställas och integreras genom merge requests.
+Några särskilda förbättringsförslag framkom inte under retrospektivet.

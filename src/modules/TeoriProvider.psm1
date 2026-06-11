@@ -23,8 +23,8 @@ function Get-TeoriByRoomId {
         [string]$RoomId
     )
 
-    $theorier = Get-Teori
-    return $theorier | Where-Object { $_.RelatedRoomId -eq $RoomId }
+    $teorier = Get-Teori
+    return $teorier | Where-Object { $_.RelatedRoomId -eq $RoomId }
 }
 
 # Exporterar funktionerna så att de kan användas av andra PowerShell-filer/moduler.

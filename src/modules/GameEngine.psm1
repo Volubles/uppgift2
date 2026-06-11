@@ -11,7 +11,7 @@ function Show-Teori {
     $teorier = Get-Teori
 
     Clear-Screen
-    Write-Host "FÖRBEREDELSE INFÖR ESCAPE ROOM" -ForegroundColor Cyan
+    Write-Host "=== FÖRBEREDELSE INFÖR ESCAPE ROOM ===" -ForegroundColor Cyan
     Write-Host ""
 
     foreach ($teori in $teorier) {
@@ -188,3 +188,4 @@ function Show-TeoriForRoom {
 
 Export-ModuleMember -Function Start-Game
 
+Export-ModuleMember -Function Start-Game
