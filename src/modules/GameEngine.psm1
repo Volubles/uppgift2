@@ -11,7 +11,7 @@ function Show-Teori {
     $teorier = Get-Teori
 
     Clear-Screen
-    Write-Host "=== FÖRBEREDELSE INFÖR ESCAPE ROOM ===" -ForegroundColor Cyan
+    Write-Host "FÖRBEREDELSE INFÖR ESCAPE ROOM" -ForegroundColor Cyan
     Write-Host ""
 
     foreach ($teori in $teorier) {
@@ -51,6 +51,8 @@ function Play-GameLoop ($SaveGame) {
             $gameRunning = $false
             break
         }
+
+        Show-TeoriForRoom -RoomId $room.Id
 
         Show-Room -Room $room -SaveGame $SaveGame
         $choice = Get-PlayerChoice -MaxOptions $room.Options.Count
