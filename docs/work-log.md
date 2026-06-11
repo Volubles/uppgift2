@@ -88,3 +88,15 @@ Jag skapade även en egen branch för arbetet, gjorde en commit och pushade bran
 
 Färdigställde GameEngine med funktionen Start-Game så att vi till slut kan få spelet att starta.
 Modulen är inte helt komplett än men i dagsläget har den de två stora vitala funktionerna som krävs för körning.
+
+## 2026-06-11 – Komplettering av ConsoleUI och sparfilshantering
+
+**Skrivet av:** Joakim
+
+Jag arbetade vidare med kopplingen mellan `GameEngine.psm1` och `ConsoleUI.psm1`. Spelet gick nu att starta och första rummet visades korrekt, men det kraschade när spelaren skulle göra sitt val. Felet berodde på att `GameEngine` försökte anropa `Get-PlayerChoice`, men den funktionen fanns inte tillgänglig i `ConsoleUI.psm1`.
+
+Jag kompletterade därför `ConsoleUI.psm1` med de funktioner som behövdes för att spelet skulle kunna fortsätta efter att ett rum har visats. Det handlar bland annat om att läsa spelarens val, visa feedback efter svar, pausa spelet, visa slutskärmen och visa enkla meddelanden. Efter ändringen kunde `GameEngine` och `ConsoleUI` arbeta tillsammans på ett bättre sätt.
+
+Jag tog också bort `data/savegame.json` från repot eftersom det är en sparfil som skapas när spelet körs. Den typen av runtime-fil ska inte ligga sparad i GitHub som en del av projektkoden. För att undvika att filen råkar läggas till igen lade jag även till `data/savegame.json` i `.gitignore`.
+
+Jag testade ändringen genom att importera `ConsoleUI.psm1` i PowerShell och kontrollera att de nya funktionerna gick att hitta med `Get-Command`.
