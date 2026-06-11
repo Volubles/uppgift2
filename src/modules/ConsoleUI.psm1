@@ -1,7 +1,5 @@
 ﻿# ConsoleUI.psm1
 # Hanterar all inmatning och utmatning i konsolen.
-# Modulen innehåller ingen spellogik, ingen poänglogik och ingen sparlogik.
-
 
 # Rensar terminalen innan en ny vy visas.
 function Clear-Screen {
@@ -100,3 +98,115 @@ function Show-Room {
 
     Write-Host ""
 }
+
+# Läser spelarens val och returnerar antingen ett nummer eller texten SPARA.
+function Get-PlayerChoice {
+    param(
+        [int]$MaxOptions
+    )
+
+    while ($true) {
+        $inputValue = Read-Host "Välj 1-$MaxOptions eller skriv SPARA"
+        $cleanInput = $inputValue.Trim().ToUpper()
+
+        if ($cleanInput -eq "SPARA" -or $cleanInput -eq "S") {
+            return "SPARA"
+        }
+
+        $number = 0
+
+        if ([int]::TryParse($cleanInput, [ref]$number)) {
+            if ($number -ge 1 -and $number -le $MaxOptions) {
+                return $number
+            }
+        }
+
+        Write-Host "Ogiltigt val."
+    }
+}
+
+
+# Visar om spelarens svar var rätt eller fel samt feedbacktexten från rummet.
+function Show-Feedback {
+    param(
+        [bool]$IsCorrect,
+        [string]$FeedbackText
+    )
+
+    Write-Host ""
+
+    if ($IsCorrect) {
+        Write-Host "RÄTT"
+    }
+    else {
+        Write-Host "FEL"
+    }
+
+    Write-Host $FeedbackText
+    Write-Host ""
+}
+
+
+# Visar slutskärmen när spelet är klart.
+function Show-GameOver {
+    param(
+        $SaveGame,
+        [int]$TotalRooms
+    )
+
+    Clear-Screen
+    Show-Header
+
+    Write-Host "Spelet är slut."
+    Write-Host "Spelare: $($SaveGame.PlayerName)"
+    Write-Host "Poäng: $($SaveGame.Score) av $TotalRooms"
+    Write-Host ""
+
+    Read-Host "Tryck Enter för att avsluta" | Out-Null
+}
+
+
+# Visar ett enkelt meddelande. Color-parametern finns kvar för kompatibilitet med GameEngine.
+function Show-Message {
+    param(
+        [string]$Message,
+        [string]$Color = "White"
+    )
+
+    Write-Host $Message
+}
+
+
+# Pausar spelet tills användaren trycker Enter.
+function Wait-ForEnter {
+    Read-Host "Tryck Enter för att fortsätta" | Out-Null
+}
+
+# Visar teori kopplad till aktuellt rum.
+function Show-Teori {
+    param(
+        $Teori
+    )
+
+    Clear-Screen
+    Show-Header
+
+    Write-Host $Teori.Title
+    Write-Host ""
+    Write-Host $Teori.Text
+    Write-Host ""
+
+    if ($null -ne $Teori.KeyPoints) {
+        Write-Host "Viktigt:"
+
+        foreach ($point in $Teori.KeyPoints) {
+            Write-Host "- $point"
+        }
+
+        Write-Host ""
+    }
+}
+
+
+# Exporterar funktionerna så att GameEngine kan anropa dem efter import.
+Export-ModuleMember -Function Clear-Screen, Show-Header, Show-MainMenu, Get-PlayerName, Show-Room, Get-PlayerChoice, Show-Feedback, Show-GameOver, Show-Message, Wait-ForEnter, Show-Teori
