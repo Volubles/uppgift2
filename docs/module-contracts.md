@@ -51,13 +51,32 @@ Anropas av:
 
 ## ConsoleUI.psm1
 
-Hanterar det användaren ser och skriver i terminalen.
+Hanterar all inmatning och utmatning i terminalen.
 
 Anropas av:
 - GameEngine.psm1
 
 Ansvar:
-- visa meny
-- visa rum
-- läsa användarens val
-- visa feedback
+- rensa terminalen
+- visa spelets rubrik
+- visa huvudmeny
+- läsa spelarens namn
+- visa aktuellt rum
+- visa svarsalternativ
+- läsa spelarens val
+- visa feedback efter svar
+- visa slutskärm
+- visa enkla meddelanden
+- pausa tills användaren trycker Enter
+
+Exporterade funktioner:
+- Clear-Screen
+- Show-Header
+- Show-MainMenu
+- Get-PlayerName
+- Show-Room
+- Get-PlayerChoice
+- Show-Feedback
+- Show-GameOver
+- Show-Message
+- Wait-ForEnter
