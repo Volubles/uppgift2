@@ -52,3 +52,74 @@ function Play-GameLoop ($SaveGame) {
         Show-Message -Message "Tryck på Enter för att fortsätta..." -Color "Yellow"
     }
 }
+
+# Huvudmeny-loop. Navigerar mellan meny och spel, själva spelandet sköts av Play-GameLoop.
+function Start-Game {
+    $running = $true
+
+    while ($running) {
+        # Alternativet för att fortsätta ett sparat spel ska bara visas om sparfilen finns och inte är avklarad
+        $hasSave = $false
+        try {
+            $loadedSave = Load-Game
+            if ($null -ne $loadedSave -and -not $loadedSave.IsCompleted) {
+                $hasSave = $true
+            }
+        } catch {
+            # Trasig sparfil ska inte krascha menyn, $hasSave förblir $false
+        }
+
+        $menuChoice = Show-MainMenu -HasSaveGame $hasSave
+
+        switch ($menuChoice) {
+            "1" {
+                try {
+                    # Försök ladda rummen i förväg för att fånga eventuella problem innan spelet startar
+                    $rooms = Get-Rooms
+                    if ($rooms.Count -eq 0) {
+                        Show-Message -Message "Det finns inga rum i rooms.json." -Color "Red"
+                        continue
+                    }
+                }
+                catch {
+                    # Om det är problem med rooms.json så kan vi inte starta spelet, visa ett felmeddelande och återgå till menyn
+                    Show-Message -Message "Kan inte starta spel: $_" -Color "Red"
+                    continue
+                }
+
+                $playerName = Get-PlayerName
+
+                # Samma struktur som SaveSystem sparar/laddar
+                $newSave = [PSCustomObject]@{
+                    PlayerName     = $playerName
+                    CurrentRoomId  = "room1"
+                    CompletedRooms = @()
+                    Score          = 0
+                    IsCompleted    = $false
+                }
+
+                Play-GameLoop -SaveGame $newSave
+            }
+            "2" {
+                try {
+                    $save = Load-Game
+                    if ($null -eq $save) {
+                        Show-Message -Message "Hittade inget sparat spel." -Color "Red"
+                    } else {
+                        Play-GameLoop -SaveGame $save
+                    }
+                }
+                catch {
+                    Show-Message -Message "Fel vid laddning: $_" -Color "Red"
+                }
+            }
+            "3" {
+                Clear-Screen
+                Write-Host "Tack för att du spelade! Hejdå!" -ForegroundColor Green
+                $running = $false
+            }
+        }
+    }
+}
+
+Export-ModuleMember -Function Start-Game
