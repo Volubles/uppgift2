@@ -52,6 +52,8 @@ function Play-GameLoop ($SaveGame) {
             break
         }
 
+        Show-TeoriForRoom -RoomId $room.Id
+
         Show-Room -Room $room -SaveGame $SaveGame
         $choice = Get-PlayerChoice -MaxOptions $room.Options.Count
 
@@ -147,5 +149,43 @@ function Start-Game {
         }
     }
 }
+
+function Show-TeoriForRoom {
+    param (
+        [string]$RoomId
+    )
+
+    $teorier = Get-TeoriByRoomId -RoomId $RoomId
+
+    if ($null -eq $teorier -or $teorier.Count -eq 0) {
+        Clear-Screen
+        Write-Host "Ingen teori hittades för rum: $RoomId" -ForegroundColor Yellow
+        Write-Host ""
+        Read-Host "Tryck Enter för att börja rummet"
+        return
+    }
+
+    foreach ($teori in $teorier) {
+        Clear-Screen
+        Write-Host "TEORI INFÖR RUMMET" -ForegroundColor Cyan
+        Write-Host ""
+
+        Write-Host $teori.Title -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host $teori.Text
+        Write-Host ""
+
+        Write-Host "Viktigt att komma ihåg:" -ForegroundColor Cyan
+
+        foreach ($point in $teori.KeyPoints) {
+            Write-Host "- $point"
+        }
+
+        Write-Host ""
+        Read-Host "Tryck Enter för att börja rummet"
+    }
+}
+
+Export-ModuleMember -Function Start-Game
 
 Export-ModuleMember -Function Start-Game
