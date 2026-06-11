@@ -80,3 +80,11 @@ I `ConsoleUI.psm1` finns nu funktioner för att visa rubrik, huvudmeny, spelaren
 Jag testade modulen genom att importera den i PowerShell och kontrollera att alla funktioner exporteras korrekt. Importtestet visade att funktionerna finns och att modulen kan laddas utan syntaxfel.
 
 Jag skapade även en egen branch för arbetet, gjorde en commit och pushade branchen till GitHub. Nästa steg är att någon i gruppen granskar Pull Requesten innan den mergas till `main`.
+
+
+## 2026-06-11 – Färdigställande av GameEngine
+
+**Skrivet av:** Martin
+
+Färdigställde GameEngine med funktionen Start-Game så att vi till slut kan få spelet att starta.
+Modulen är inte helt komplett än men i dagsläget har den de två stora vitala funktionerna som krävs för körning.
