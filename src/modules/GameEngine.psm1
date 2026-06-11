@@ -3,8 +3,34 @@
 
 $currentDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 Import-Module (Join-Path $currentDir "RoomProvider.psm1") -Force
+Import-Module (Join-Path $currentDir "TeoriProvider.psm1") -Force
 Import-Module (Join-Path $currentDir "SaveSystem.psm1") -Force
 Import-Module (Join-Path $currentDir "ConsoleUI.psm1") -Force
+
+function Show-Teori {
+    $teorier = Get-Teori
+
+    Clear-Screen
+    Write-Host "=== FÖRBEREDELSE INFÖR ESCAPE ROOM ===" -ForegroundColor Cyan
+    Write-Host ""
+
+    foreach ($teori in $teorier) {
+        Write-Host $teori.Title -ForegroundColor Yellow
+        Write-Host ""
+        Write-Host $teori.Text
+        Write-Host ""
+
+        Write-Host "Viktigt att komma ihåg:" -ForegroundColor Cyan
+
+        foreach ($point in $teori.KeyPoints) {
+            Write-Host "- $point"
+        }
+
+        Write-Host ""
+        Read-Host "Tryck Enter för att fortsätta"
+        Clear-Screen
+    }
+}
 
 function Play-GameLoop ($SaveGame) {
     $gameRunning = $true
