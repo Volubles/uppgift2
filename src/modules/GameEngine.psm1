@@ -187,5 +187,3 @@ function Show-TeoriForRoom {
 }
 
 Export-ModuleMember -Function Start-Game
-
-Export-ModuleMember -Function Start-Game
