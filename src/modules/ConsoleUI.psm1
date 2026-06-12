@@ -16,8 +16,8 @@ function Clear-Screen {
 
 # Visar spelets enkla rubrik.
 function Show-Header {
-    Write-Host "SECURITY ESCAPE ROOM CLI"
-    Write-Host "========================"
+    Write-Host "SECURITY ESCAPE ROOM CLI" -ForegroundColor Cyan
+    Write-Host ""
     Write-Host ""
 }
 
@@ -31,16 +31,16 @@ function Show-MainMenu {
     Clear-Screen
     Show-Header
 
-    Write-Host "1. Nytt spel"
+    Write-Host "1. Nytt spel" -ForegroundColor Green
 
     if ($HasSaveGame) {
-        Write-Host "2. Fortsätt sparat spel"
+        Write-Host "2. Fortsätt sparat spel" -ForegroundColor Green
     }
     else {
-        Write-Host "2. Fortsätt sparat spel (saknas)"
+        Write-Host "2. Fortsätt sparat spel (saknas)" -ForegroundColor DarkGray
     }
 
-    Write-Host "3. Avsluta"
+    Write-Host "3. Avsluta" -ForegroundColor Red
     Write-Host ""
 
     while ($true) {
@@ -54,13 +54,13 @@ function Show-MainMenu {
                 return "2"
             }
 
-            Write-Host "Det finns inget sparat spel."
+            Write-Host "Det finns inget sparat spel." -ForegroundColor DarkGray
         }
         elseif ($choice -eq "3") {
             return "3"
         }
         else {
-            Write-Host "Ogiltigt val."
+            Write-Host "Ogiltigt val." -ForegroundColor Red
         }
     }
 }
@@ -75,7 +75,7 @@ function Get-PlayerName {
             return $name.Trim()
         }
 
-        Write-Host "Namnet får inte vara tomt."
+        Write-Host "Namnet får inte vara tomt." -ForegroundColor Red
     }
 }
 
@@ -90,9 +90,9 @@ function Show-Room {
     Clear-Screen
     Show-Header
 
-    Write-Host "Spelare: $($SaveGame.PlayerName)"
-    Write-Host "Poäng: $($SaveGame.Score)"
-    Write-Host "Rum: $($Room.Title)"
+    Write-Host "Spelare: $($SaveGame.PlayerName)" -ForegroundColor Yellow
+    Write-Host "Poäng: $($SaveGame.Score)" -ForegroundColor Yellow
+    Write-Host "Rum: $($Room.Title)" -ForegroundColor Yellow
     Write-Host ""
 
     Write-Host $Room.Description
@@ -127,7 +127,7 @@ function Get-PlayerChoice {
             }
         }
 
-        Write-Host "Ogiltigt val."
+        Write-Host "Ogiltigt val." -ForegroundColor DarkGray
     }
 }
 
@@ -163,9 +163,9 @@ function Show-GameOver {
     Clear-Screen
     Show-Header
 
-    Write-Host "Spelet är klart."
-    Write-Host "Spelare: $($SaveGame.PlayerName)"
-    Write-Host "Poäng: $($SaveGame.Score) av $TotalRooms"
+    Write-Host "Spelet är klart." -ForegroundColor Green
+    Write-Host "Spelare: $($SaveGame.PlayerName)" -ForegroundColor Yellow
+    Write-Host "Poäng: $($SaveGame.Score) av $TotalRooms" -ForegroundColor Yellow
     Write-Host ""
 
     Wait-ForEnter
