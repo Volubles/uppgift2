@@ -47,4 +47,32 @@ function Write-ResultToGist ($PlayerName, $Score, $Total, $WeakAreas, $Config) {
         if ([string]::IsNullOrEmpty($befintligLogg)) {
             $befintligLogg = "# Security Escape Room - Resultatlogg`n`n| Spelare | Datum | Resultat | Godkänd | Svaga områden |`n|---|---|---|---|---|"
         }
+        
+        # Bygger den nya loggraden. Detta är vad som kommer att loggas och hur det kommer att se ut i Gist-loggen.
+        $datum     = Get-Date -Format "yyyy-MM-dd HH:mm"
+        $godkand   = if ($Score -eq $Total) { "Ja" } else { "Nej" }
+        $unika     = @($WeakAreas | Where-Object { $_ } | Select-Object -Unique)
+        $svaga     = if ($unika.Count -eq 0) { "-" } else { $unika -join ", " }
+        $nyRad     = "| $PlayerName | $datum | $Score/$Total | $godkand | $svaga |"
+        
+        # Den nya raden läggs till sist i den befintliga loggen.
+        $uppdaterad = $befintligLogg + "`n" + $nyRad
+
+        # Skriver tillbaka den uppdaterade loggen till Gist via PATCH-anropet.
+        $body = @{ files = @{ $logFileName = @{ content = $uppdaterad } } } | ConvertTo-Json -Depth 5
+        Invoke-RestMethod -Uri $uri -Method Patch -Headers $headers -Body $body -ErrorAction Stop | Out-Null
+ 
+        # Om allt gick bra, skriv ut en bekräftelse i konsolen.
+        Write-Host "Resultatet loggades till Gist." -ForegroundColor Green
+        return $true
+        
+    }
+    catch {
+        # Om något gick fel, fångar vi felet och skriver ut en varning, men spelet fortsätter ändå.
+        Write-Host "Kunde inte logga resultatet: $_" -ForegroundColor Yellow
+        Write-Host "Spelet fortsätter ändå." -ForegroundColor Yellow
+        return $false
+    }
 }
+
+Export-ModuleMember -Function Initialize-ResultLogger, Write-ResultToGist
