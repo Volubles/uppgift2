@@ -1,1 +1,3 @@
 data/savegame.json
+logs/*.jsonl
+!logs/.gitkeep
