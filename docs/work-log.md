@@ -107,7 +107,7 @@ Jag testade ändringen genom att importera `ConsoleUI.psm1` i PowerShell och kon
 
 MVP läge fryst och teorimodul implementerad för att utbilda innan spelare går vidare till frågeställningen.
 
-## 2026-06-12 – MVP & Teorimodul klar.
+## 2026-06-12 – Loggning av resultat och uppladdning till Github Gist klar.
 
 **Skrivet av:** Martin
 
@@ -117,3 +117,8 @@ Loggen ska kunna visa vilka områden användaren hade svårt för och därmed ka
 
 Skapade config.template.ps1 som beskriver vad som behöver göras för varje användare så att publiceringen till Gisten fungerar.
 Lade till config.ps1 i .gitignore så att viktig data ej hamnar publikt på internet.
+
+**Uppdatering:**
+
+ResultLogger är nu sammankopplad med GameEngine och nu skickas resultatet av ett avklarat spel till Gisten.
+Detta förutsätter att config.ps1 är konfigurerat med GistId och GithubToken.
