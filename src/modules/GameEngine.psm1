@@ -6,7 +6,7 @@ Import-Module (Join-Path $currentDir "RoomProvider.psm1") -Force
 Import-Module (Join-Path $currentDir "TeoriProvider.psm1") -Force
 Import-Module (Join-Path $currentDir "SaveSystem.psm1") -Force
 Import-Module (Join-Path $currentDir "ConsoleUI.psm1") -Force
-Import-Module (Join-Path $currentDir "LoggingSystem.psm1") -Force
+Import-Module (Join-Path $currentDir "TechnicalLogging.psm1") -Force
 
 
 # Skriver tekniska logghändelser utan att spelet kraschar om loggningen misslyckas.
