@@ -162,7 +162,7 @@ function Show-TeoriForRoom {
         Clear-Screen
         Write-Host "Ingen teori hittades för rum: $RoomId" -ForegroundColor Yellow
         Write-Host ""
-        Write-Host "Tryck Enter för att börja rummet" -ForegroundColor Green
+        Write-Host "Tryck Enter för att börja rummet" -NoNewline -ForegroundColor Green
         Read-Host
         return
     }
@@ -184,7 +184,7 @@ function Show-TeoriForRoom {
         }
 
         Write-Host ""
-        Write-Host "Tryck Enter för att börja rummet" -ForegroundColor Green
+        Write-Host "Tryck Enter för att börja rummet " -NoNewline -ForegroundColor Green
         Read-Host
     }
 }

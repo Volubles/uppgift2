@@ -31,10 +31,10 @@ function Show-MainMenu {
     Clear-Screen
     Show-Header
 
-    Write-Host "1. Nytt spel" -ForegroundColor Green
+    Write-Host "1. Nytt spel" -ForegroundColor White
 
     if ($HasSaveGame) {
-        Write-Host "2. Fortsätt sparat spel" -ForegroundColor Green
+        Write-Host "2. Fortsätt sparat spel" -ForegroundColor White
     }
     else {
         Write-Host "2. Fortsätt sparat spel (saknas)" -ForegroundColor DarkGray
@@ -69,7 +69,8 @@ function Show-MainMenu {
 # Läser spelarens namn och tillåter inte tom input.
 function Get-PlayerName {
     while ($true) {
-        $name = Read-Host "Ange ditt namn"
+        Write-Host "Ange ditt namn: " -ForegroundColor Green -NoNewline
+        $name = Read-Host
 
         if (-not [string]::IsNullOrWhiteSpace($name)) {
             return $name.Trim()
@@ -95,7 +96,7 @@ function Show-Room {
     Write-Host "Rum: $($Room.Title)" -ForegroundColor Yellow
     Write-Host ""
 
-    Write-Host $Room.Description
+    Write-Host $Room.Description -ForegroundColor Cyan
     Write-Host ""
 
     for ($i = 0; $i -lt $Room.Options.Count; $i++) {
@@ -114,8 +115,12 @@ function Get-PlayerChoice {
     )
 
     while ($true) {
-        $choice = Read-Host "Välj 1-$MaxOptions eller S för att spara"
-
+        Write-Host "Välj " -ForegroundColor Green -NoNewline
+        Write-Host "1-$MaxOptions" -ForegroundColor White -NoNewline
+        Write-Host " eller " -ForegroundColor Green -NoNewline
+        Write-Host "S" -ForegroundColor Cyan -NoNewline
+        Write-Host " för att spara: " -ForegroundColor Green -NoNewline  
+        $choice = Read-Host
         if ($choice -eq "S" -or $choice -eq "s") {
             return "SPARA"
         }
@@ -139,16 +144,17 @@ function Show-Feedback {
         [string]$FeedbackText
     )
 
+    Write-Host ""
+    Write-Host ""
+
     if ($IsCorrect) {
-        Write-Host ""
-        Write-Host "Rätt!" -ForegroundColor Green
+        Write-Host "Rätt!" -ForegroundColor Green -NoNewline
     }
     else {
-        Write-Host ""
-        Write-Host "Fel." -ForegroundColor Red
+        Write-Host "Fel." -ForegroundColor Red -NoNewline
     }
 
-    Write-Host $FeedbackText
+    Write-Host $FeedbackText -ForegroundColor White
     Wait-ForEnter
 }
 
@@ -185,7 +191,8 @@ function Show-Message {
 
 # Pausar tills användaren trycker Enter.
 function Wait-ForEnter {
-    Read-Host "Tryck på Enter för att fortsätta" | Out-Null
+    Write-Host "Tryck på Enter för att fortsätta.." -ForegroundColor Green -NoNewline | Out-Null
+    Read-Host | Out-Null    
 }
 
 
