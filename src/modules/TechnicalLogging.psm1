@@ -1,4 +1,4 @@
-# LoggingSystem.psm1
+# TechnicalLogging.psm1
 # Hanterar teknisk loggning av spelhändelser.
 # Modulen innehåller ingen spellogik.
 
