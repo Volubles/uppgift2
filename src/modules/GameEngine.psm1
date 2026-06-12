@@ -11,7 +11,7 @@ function Show-Teori {
     $teorier = Get-Teori
 
     Clear-Screen
-    Write-Host "=== FÖRBEREDELSE INFÖR ESCAPE ROOM ===" -ForegroundColor Cyan
+    Write-Host "FÖRBEREDELSE INFÖR ESCAPE ROOM" -ForegroundColor Cyan
     Write-Host ""
 
     foreach ($teori in $teorier) {
@@ -20,14 +20,15 @@ function Show-Teori {
         Write-Host $teori.Text
         Write-Host ""
 
-        Write-Host "Viktigt att komma ihåg:" -ForegroundColor Cyan
+        Write-Host "Viktigt att komma ihåg:" 
 
         foreach ($point in $teori.KeyPoints) {
             Write-Host "- $point"
         }
 
         Write-Host ""
-        Read-Host "Tryck Enter för att fortsätta"
+        Write-Host "Tryck Enter för att fortsätta" -ForegroundColor Green
+        Read-Host | Out-Null    
         Clear-Screen
     }
 }
@@ -161,7 +162,8 @@ function Show-TeoriForRoom {
         Clear-Screen
         Write-Host "Ingen teori hittades för rum: $RoomId" -ForegroundColor Yellow
         Write-Host ""
-        Read-Host "Tryck Enter för att börja rummet"
+        Write-Host "Tryck Enter för att börja rummet" -ForegroundColor Green
+        Read-Host
         return
     }
 
@@ -175,14 +177,15 @@ function Show-TeoriForRoom {
         Write-Host $teori.Text
         Write-Host ""
 
-        Write-Host "Viktigt att komma ihåg:" -ForegroundColor Cyan
+        Write-Host "Viktigt att komma ihåg:" -ForegroundColor Yellow
 
         foreach ($point in $teori.KeyPoints) {
             Write-Host "- $point"
         }
 
         Write-Host ""
-        Read-Host "Tryck Enter för att börja rummet"
+        Write-Host "Tryck Enter för att börja rummet" -ForegroundColor Green
+        Read-Host
     }
 }
 
