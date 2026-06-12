@@ -122,3 +122,9 @@ Lade till config.ps1 i .gitignore så att viktig data ej hamnar publikt på inte
 
 ResultLogger är nu sammankopplad med GameEngine och nu skickas resultatet av ett avklarat spel till Gisten.
 Detta förutsätter att config.ps1 är konfigurerat med GistId och GithubToken.
+
+## 2026-06-12 – Färgsättning av text (förbättra upplevelsen för användaren).
+
+**Skrivet av:** Alexander
+
+Terminalgränssnittet har snyggats till och uppdaterats med dynamisk färgsättning på texterna. Detta har gjorts för att förbättra användarupplevelsen och göra informationen betydligt mer lättläst, tydlig och överskådlig för användaren under spelets gång.
