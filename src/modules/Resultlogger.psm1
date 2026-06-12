@@ -23,3 +23,28 @@ function Initialize-ResultLogger {
  
     return @{ Token = $token; GistId = $gistId }
 }
+
+# Tar emot spelarens resultat plus $Config (det som Initialize-ResultLogger returnerar)
+function Write-ResultToGist ($PlayerName, $Score, $Total, $WeakAreas, $Config) {
+    try {
+        # Autentiseringsheader och API-endpoint
+        $headers = @{
+            "Authorization" = "Bearer $($Config.Token)"
+            "Accept"        = "application/vnd.github+json"
+        }
+        $uri = "https://api.github.com/gists/$($Config.GistId)"
+
+        # Hämtar gistens nuvarande innehåll
+        $gist = Invoke-RestMethod -Uri $uri -Method Get -Headers $headers -ErrorAction Stop
+
+        # En Gist kan innehålla flera filer, vi letar specifikt efter results-log.md
+        $logFileName = "results-log.md"
+        $befintligLogg = $null
+        if ($gist.files.PSObject.Properties[$logFileName]) {
+            $befintligLogg = $gist.files.$logFileName.content
+        }
+        # Om loggfilen inte finns, skapa en ny med en header
+        if ([string]::IsNullOrEmpty($befintligLogg)) {
+            $befintligLogg = "# Security Escape Room - Resultatlogg`n`n| Spelare | Datum | Resultat | Godkänd | Svaga områden |`n|---|---|---|---|---|"
+        }
+}
