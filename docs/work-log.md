@@ -114,3 +114,6 @@ MVP läge fryst och teorimodul implementerad för att utbilda innan spelare går
 Skapade ResultLogger.psm1 i syfte att logga resultatet från avklarade spelsessioner som sedan ska skickas till Github Gist.
 Tanken med detta är att behörig personal på ett enkelt sätt ska kunna se de anställdas resultat från spelet och därmed och vilka som är helt godkända och vilka som eventuellt är i behov av utbildning inom IT-säkerhet.
 Loggen ska kunna visa vilka områden användaren hade svårt för och därmed kan man nicha vidareutbildningen om så önskas.
+
+Skapade config.template.ps1 som beskriver vad som behöver göras för varje användare så att publiceringen till Gisten fungerar.
+Lade till config.ps1 i .gitignore så att viktig data ej hamnar publikt på internet.
