@@ -7,6 +7,7 @@ Import-Module (Join-Path $currentDir "TeoriProvider.psm1") -Force
 Import-Module (Join-Path $currentDir "SaveSystem.psm1") -Force
 Import-Module (Join-Path $currentDir "ConsoleUI.psm1") -Force
 Import-Module (Join-Path $currentDir "TechnicalLogging.psm1") -Force
+Import-Module (Join-Path $currentDir "ResultLogger.psm1") -Force
 
 
 # Skriver tekniska logghändelser utan att spelet kraschar om loggningen misslyckas.
@@ -60,6 +61,10 @@ function Show-Teori {
 
 
 function Play-GameLoop ($SaveGame) {
+    if ($null -eq $SaveGame.WeakAreas) {
+    $SaveGame | Add-Member -NotePropertyName WeakAreas -NotePropertyValue @() -Force
+    }
+    
     $gameRunning = $true
     $totalRooms = (Get-Rooms).Count
 
@@ -82,6 +87,16 @@ function Play-GameLoop ($SaveGame) {
             }
 
             Show-GameOver -SaveGame $SaveGame -TotalRooms $totalRooms
+
+            # Skicka resultatet till Gisten (om loggning är konfigurerad)
+            if ($null -ne $script:logConfig) {
+                Write-ResultToGist -PlayerName $SaveGame.PlayerName `
+                                   -Score $SaveGame.Score `
+                                   -Total $totalRooms `
+                                   -WeakAreas $SaveGame.WeakAreas `
+                                   -Config $script:logConfig
+            }
+
             Remove-SaveGame
             $gameRunning = $false
             break
@@ -144,6 +159,7 @@ function Play-GameLoop ($SaveGame) {
             Show-Feedback -IsCorrect $true -FeedbackText $room.SuccessText
         }
         else {
+            $SaveGame.WeakAreas += $room.Title
             Show-Feedback -IsCorrect $false -FeedbackText $room.FailureText
         }
 
@@ -173,6 +189,14 @@ function Play-GameLoop ($SaveGame) {
 # Huvudmeny-loop. Navigerar mellan meny och spel.
 function Start-Game {
     $running = $true
+
+    # Läser loggningskonfigurationen en gång. $script: gör den synlig i Play-GameLoop.
+    $script:logConfig = $null
+    try {
+        $script:logConfig = Initialize-ResultLogger
+    } catch {
+        Write-GameLog -Event "ResultLoggerInitFailed" -Level "WARN" -Message "Resultatloggning ej konfigurerad."
+    }
 
     # Loggar att spelet startades.
     Write-GameLog -Event "GameStarted" -Message "Spelet startades."
@@ -223,6 +247,7 @@ function Start-Game {
                     CompletedRooms = @()
                     Score          = 0
                     IsCompleted    = $false
+                    WeakAreas      = @()
                 }
 
                 Write-GameLog -Event "NewGameStarted" -Message "Nytt spel startades." -Data @{
