@@ -100,3 +100,10 @@ Jag kompletterade därför `ConsoleUI.psm1` med de funktioner som behövdes för
 Jag tog också bort `data/savegame.json` från repot eftersom det är en sparfil som skapas när spelet körs. Den typen av runtime-fil ska inte ligga sparad i GitHub som en del av projektkoden. För att undvika att filen råkar läggas till igen lade jag även till `data/savegame.json` i `.gitignore`.
 
 Jag testade ändringen genom att importera `ConsoleUI.psm1` i PowerShell och kontrollera att de nya funktionerna gick att hitta med `Get-Command`.
+
+## 2026-06-11 – MVP & Teorimodul klar.
+
+**Skrivet av:** Joakim
+
+MVP läge fryst och teorimodul implementerad för att utbilda innan spelare går vidare till frågeställningen.
+
