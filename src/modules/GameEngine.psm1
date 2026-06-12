@@ -174,6 +174,11 @@ function Play-GameLoop ($SaveGame) {
 
         $SaveGame.CurrentRoomId = $room.NextRoomId
         Save-Game -SaveGame $SaveGame
+        Write-GameLog -Event "GameProgressSaved" -Message "Spelets framsteg autosparades." -Data @{
+            PlayerName = $SaveGame.PlayerName
+            CurrentRoomId = $SaveGame.CurrentRoomId
+            Score = $SaveGame.Score
+        }
 
         # Loggar vilket rum spelet går vidare till.
         Write-GameLog -Event "RoomAdvanced" -Message "Spelet gick vidare till nästa rum." -Data @{
@@ -213,10 +218,18 @@ function Start-Game {
             }
         }
         catch {
+            Write-GameLog -Event "SaveGameCheckFailed" -Level "WARN" -Message "Kunde inte kontrollera sparfil i huvudmenyn." -Data @{
+                Error = $_.Exception.Message
+            }
+
             # Trasig sparfil ska inte krascha menyn.
         }
 
         $menuChoice = Show-MainMenu -HasSaveGame $hasSave
+        Write-GameLog -Event "MenuChoiceSelected" -Message "Spelaren valde ett alternativ i huvudmenyn." -Data @{
+            MenuChoice = $menuChoice
+            HasSaveGame = $hasSave
+        }
 
         switch ($menuChoice) {
             "1" {
@@ -304,6 +317,10 @@ function Show-TeoriForRoom {
     $teorier = Get-TeoriByRoomId -RoomId $RoomId
 
     if ($null -eq $teorier -or $teorier.Count -eq 0) {
+        Write-GameLog -Event "TheoryMissing" -Level "WARN" -Message "Ingen teori hittades för rummet." -Data @{
+            RoomId = $RoomId
+        }
+
         Clear-Screen
         Write-Host "Ingen teori hittades för rum: $RoomId" -ForegroundColor Yellow
         Write-Host ""
