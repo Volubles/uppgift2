@@ -107,3 +107,10 @@ Jag testade ändringen genom att importera `ConsoleUI.psm1` i PowerShell och kon
 
 MVP läge fryst och teorimodul implementerad för att utbilda innan spelare går vidare till frågeställningen.
 
+## 2026-06-12 – MVP & Teorimodul klar.
+
+**Skrivet av:** Martin
+
+Skapade ResultLogger.psm1 i syfte att logga resultatet från avklarade spelsessioner som sedan ska skickas till Github Gist.
+Tanken med detta är att behörig personal på ett enkelt sätt ska kunna se de anställdas resultat från spelet och därmed och vilka som är helt godkända och vilka som eventuellt är i behov av utbildning inom IT-säkerhet.
+Loggen ska kunna visa vilka områden användaren hade svårt för och därmed kan man nicha vidareutbildningen om så önskas.
