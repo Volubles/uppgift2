@@ -128,3 +128,15 @@ Detta förutsätter att config.ps1 är konfigurerat med GistId och GithubToken.
 **Skrivet av:** Alexander
 
 Terminalgränssnittet har snyggats till och uppdaterats med dynamisk färgsättning på texterna. Detta har gjorts för att förbättra användarupplevelsen och göra informationen betydligt mer lättläst, tydlig och överskådlig för användaren under spelets gång.
+
+## 2026-06-12 – Information till spelaren innan spelets start
+
+**Skrivet av:** Martin
+
+Hårdkodade in en informativ text innan spelaren når spelets meny för att informera om syftet och betydelsen av spelet.
+Valde att göra på detta viset då koden inte var speciellt lång och för att slippa skapa nya filer eller behöva ändra i multipla filer.
+
+
+## 2026-06-15 – Loggning av resultat och uppladdning till Github Gist klar.
+
+**Skrivet av:** Martin
