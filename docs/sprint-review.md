@@ -24,6 +24,17 @@ Eftersom Product owner inte är tillgänglig så godkänner vi gemensamt under m
 
 ## Vad saknas eller behöver förbättras?
 
-- Inget saknas eller behöver förbättras.
+- Product Owner behöver genomföra en slutlig granskning av produkten.
+- Produktens verksamhetsvärde och mätbara mål behöver godkännas.
+- Eventuellt kvarstående arbete ska prioriteras och läggas i GitHub Projects.
+
+## Uppföljning av Product Owner
+
+Product Owner var inte tillgänglig under sprint review. Gruppens bedömning av
+Definition of Done är därför preliminär tills Product Owner har granskat
+produkten mot acceptanskriterierna.
+
+Granskning och slutligt beslut dokumenteras i
+[Product Owner-planen](product-owner-plan.md).
 
 
