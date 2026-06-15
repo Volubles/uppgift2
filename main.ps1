@@ -24,7 +24,7 @@ try {
     Write-Host "VÄLKOMMEN TILL SECURITY ESCAPE ROOM" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Vi på IT vill påminna om att våra tekniska system bara är hälften av företagets skydd, den andra hälften är du." -ForegroundColor White
-    Write-Host "Eftersom cyberhoten blir allt smartare är denna korta IT-säkerhetsutbildning obligatorisk för att vi tillsammans ska kunna säkra vår dagliga drift. " -ForegroundColor White
+    Write-Host "Eftersom cyberhoten blir allt smartare är denna korta IT-säkerhetsutbildning obligatorisk för att vi tillsammans ska kunna säkra vår dagliga drift." -ForegroundColor White
     Write-Host "Tack för att du tar dig tiden och hjälper oss att hålla verksamheten trygg!"
     Write-Host ""
     Write-Host "I det här spelet kommer du att få läsa teori och sedan lösa säkerhetsrelaterade situationer." -ForegroundColor White

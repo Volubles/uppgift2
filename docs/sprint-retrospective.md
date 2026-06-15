@@ -20,7 +20,7 @@ Den här filen används av Scrum Master för att sammanfatta hur arbetet gick. �
 Sprint Retrospective,
 Den här filen används av Scrum Master för att sammanfatta hur arbetet gick. Återanvänd samma frågeställningar vid varje Sprint Retrospective.
 
-## Vad gick bra? 20260612 12:!5 
+## Vad gick bra? 2026-06-12 12:15 
 ### Deltagere: Joakim, Martin, Alexander.
 Kommunikationen och samarbetet mellan oss som deltog idag var utmärkt och vi nådde 'definition of done' på allt som var planerat för dagen.
 
