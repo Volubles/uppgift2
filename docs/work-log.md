@@ -137,6 +137,8 @@ Hårdkodade in en informativ text innan spelaren når spelets meny för att info
 Valde att göra på detta viset då koden inte var speciellt lång och för att slippa skapa nya filer eller behöva ändra i multipla filer.
 
 
-## 2026-06-15 – Loggning av resultat och uppladdning till Github Gist klar.
+## 2026-06-15 – Tillägg och ändring av dokumentation
 
 **Skrivet av:** Martin
+
+Såg över delar av dokumentationen och lade till eller ändrade där det ansågs befogat.
