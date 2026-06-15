@@ -95,6 +95,7 @@ Kör testerna från projektroten:
 - [Modulkontrakt](docs/module-contracts.md)
 - [Git-arbetsflöde](docs/git-workflow.md)
 - [Produktvision](docs/product-vision.md)
+- [Product Owner-plan](docs/product-owner-plan.md)
 - [ADKAR-plan](docs/adkar-plan.md)
 - [Daily standups](docs/daily-standups.md)
 - [Sprint review](docs/sprint-review.md)
