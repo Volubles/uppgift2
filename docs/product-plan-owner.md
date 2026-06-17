@@ -51,18 +51,80 @@ förbättring.
 Acceptanskriterierna har jämförts med den implementation, de tester och den
 dokumentation som gruppen har tagit fram.
 
-| Acceptanskriterium | Status | Underlag |
-| Spelet kan startas via `main.ps1`. | Uppfyllt | `main.ps1` importerar spelmotorn och anropar `Start-Game`. `Test-MVP.ps1` verifierar att spelmotorn kan laddas. |
-| Användaren kan läsa teori och genomföra samtliga säkerhetsscenarier. | Uppfyllt | `TeoriProvider.psm1`, `teorin.json` och spelloopen visar teori och samtliga rum. Funktionen har demonstrerats av gruppen. |
-| Spelet ger tydlig feedback efter varje svar. | Uppfyllt | `Show-Feedback` visar om svaret är rätt eller fel tillsammans med rummets feedbacktext. |
-| Poäng och svaga områden registreras korrekt. | Uppfyllt | Spelmotorn ökar poängen vid rätt svar och lägger rummets titel i `WeakAreas` vid fel svar. |
-| Ett pågående spel kan sparas och fortsättas. | Uppfyllt | `SaveSystem.psm1` innehåller funktioner för att spara och ladda. Huvudmenyn visar alternativet att fortsätta när en sparfil finns. |
-| Fel i datafiler eller resultatloggning kraschar inte hela spelet. | Uppfyllt | Fel fångas med `try/catch`. Fel i rum eller sparfil visas för användaren, och fel i resultatloggningen låter spelet fortsätta. |
-| Tekniska händelser loggas för felsökning. | Uppfyllt | `TechnicalLogging.psm1` skriver JSONL-loggar. `Test-TechnicalLogging.ps1` passerar. |
-| Resultat kan skickas till en GitHub Gist när funktionen är konfigurerad. | Uppfyllt | `ResultLogger.psm1` skickar resultat via GitHub API. Integrationen är dokumenterad som demonstrerad i sprint review och work log. |
-| Spelet fungerar även när Gist-konfiguration saknas. | Uppfyllt | Spelmotorn fångar konfigurationsfelet och fortsätter utan resultatloggning. |
-| Projektets tester passerar. | Uppfyllt | `Test-MVP.ps1` och `Test-TechnicalLogging.ps1` har körts utan fel. ConsoleUI-funktionerna kontrolleras i `Test-ConsoleUI.ps1` och har demonstrerats av gruppen. |
-| Dokumentationen beskriver körning, arkitektur och modulernas ansvar. | Uppfyllt | `README.md`, `system-topology.md` och `module-contracts.md` beskriver dessa delar. |
+### Spelet kan startas via `main.ps1`
+
+**Status:** Uppfyllt
+**Underlag:** `main.ps1` importerar spelmotorn och anropar `Start-Game`. `Test-MVP.ps1` verifierar att spelmotorn kan laddas.
+
+---
+
+### Användaren kan läsa teori och genomföra samtliga säkerhetsscenarier
+
+**Status:** Uppfyllt
+**Underlag:** `TeoriProvider.psm1`, `teorin.json` och spelloopen visar teori och samtliga rum. Funktionen har demonstrerats av gruppen.
+
+---
+
+### Spelet ger tydlig feedback efter varje svar
+
+**Status:** Uppfyllt
+**Underlag:** `Show-Feedback` visar om svaret är rätt eller fel tillsammans med rummets feedbacktext.
+
+---
+
+### Poäng och svaga områden registreras korrekt
+
+**Status:** Uppfyllt
+**Underlag:** Spelmotorn ökar poängen vid rätt svar och lägger rummets titel i `WeakAreas` vid fel svar.
+
+---
+
+### Ett pågående spel kan sparas och fortsättas
+
+**Status:** Uppfyllt
+**Underlag:** `SaveSystem.psm1` innehåller funktioner för att spara och ladda. Huvudmenyn visar alternativet att fortsätta när en sparfil finns.
+
+---
+
+### Fel i datafiler eller resultatloggning kraschar inte hela spelet
+
+**Status:** Uppfyllt
+**Underlag:** Fel fångas med `try/catch`. Fel i rum eller sparfil visas för användaren, och fel i resultatloggningen låter spelet fortsätta.
+
+---
+
+### Tekniska händelser loggas för felsökning
+
+**Status:** Uppfyllt
+**Underlag:** `TechnicalLogging.psm1` skriver JSONL-loggar. `Test-TechnicalLogging.ps1` passerar.
+
+---
+
+### Resultat kan skickas till en GitHub Gist när funktionen är konfigurerad
+
+**Status:** Uppfyllt
+**Underlag:** `ResultLogger.psm1` skickar resultat via GitHub API. Integrationen är dokumenterad som demonstrerad i sprint review och work log.
+
+---
+
+### Spelet fungerar även när Gist-konfiguration saknas
+
+**Status:** Uppfyllt
+**Underlag:** Spelmotorn fångar konfigurationsfelet och fortsätter utan resultatloggning.
+
+---
+
+### Projektets tester passerar
+
+**Status:** Uppfyllt
+**Underlag:** `Test-MVP.ps1` och `Test-TechnicalLogging.ps1` har körts utan fel. ConsoleUI-funktionerna kontrolleras i `Test-ConsoleUI.ps1` och har demonstrerats av gruppen.
+
+---
+
+### Dokumentationen beskriver körning, arkitektur och modulernas ansvar
+
+**Status:** Uppfyllt
+**Underlag:** `README.md`, `system-topology.md` och `module-contracts.md` beskriver dessa delar.
 
 Samtliga acceptanskriterier bedöms som uppfyllda utifrån genomförda tester,
 demonstrationer, kodgranskning och projektdokumentation.
